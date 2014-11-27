@@ -1,0 +1,4 @@
+promise
+=======
+
+Promise组件
