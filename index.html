@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>promise test</title>
+	<script type="text/javascript" src="promise.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var p = new Promise();
+		p.then(function(){
+			console.log('complete 1',arguments);
+			var args = [].slice.call(arguments)
+			var p = new Promise();
+			console.log(args);
+			setTimeout(function(){
+				p.resolve(args);
+			},1000);
+			return p;
+		}).then(function(){
+			console.log('complete 2',arguments);
+			var args = [].slice.call(arguments)
+			var p = new Promise();
+			console.log(args);
+			setTimeout(function(){
+				p.resolve(args);
+			},3000);
+			return p;
+		}).then(function(){
+			console.log('complete 3',arguments);
+			var args = [].slice.call(arguments)
+			var p = new Promise();
+			console.log(args);
+			setTimeout(function(){
+				p.resolve(args);
+			},1000);
+			return p;
+		}).then(function(){
+			console.log('complete 4',arguments);
+		});
+		//setTimeout(function(){
+			p.resolve();
+		//},0);
+	</script>
+</body>
+</html>
